@@ -25,7 +25,7 @@ int[,] CreateRandomMatrix(int RowLength, int ColLenght, int MinNumber, int MaxNu
         {
             for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                matrix[i, j] = rnd.Next(MinNumber, MaxNumber);
+                matrix[i, j] = rnd.Next(MinNumber, MaxNumber+1);
             }
         }
         return matrix;
