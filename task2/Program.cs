@@ -1,16 +1,17 @@
 ﻿// Поиск суммы элементов в каждай строке
 
 
-void Main ()
+void Main()
 {
     int row = ReadInt("Введите количество строк: ");
     int col = ReadInt("Введите количество столбцов: ");
     int min = ReadInt("Введите минимальное число для рандома: ");
     int max = ReadInt("Введите максимальное число для рандома: ");
-    
-    int [,] matrix = CreateRandomMatrix(row, col, min, max); 
+
+    int[,] matrix = CreateRandomMatrix(row, col, min, max);
     PrintMatrix(matrix);
     RowSummElements(matrix);
+    ColumSummElements(matrix);
 }
 
 int[,] CreateRandomMatrix(int RowLength, int ColLenght, int MinNumber, int MaxNumber)
@@ -23,7 +24,7 @@ int[,] CreateRandomMatrix(int RowLength, int ColLenght, int MinNumber, int MaxNu
         {
             for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                matrix[i, j] = rnd.Next(MinNumber, MaxNumber+1);
+                matrix[i, j] = rnd.Next(MinNumber, MaxNumber + 1);
             }
         }
         return matrix;
@@ -41,6 +42,7 @@ void PrintMatrix(int[,] matrix)
         }
         System.Console.WriteLine();
     }
+    System.Console.WriteLine();
 }
 
 int ReadInt(string msg)
@@ -49,7 +51,7 @@ int ReadInt(string msg)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-void RowSummElements (int[,] matrix)
+void RowSummElements(int[,] matrix)
 {
     int sum = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -59,8 +61,24 @@ void RowSummElements (int[,] matrix)
         {
             sum = sum + matrix[i, j];
         }
-        System.Console.WriteLine($"Сумма элементов в {i+1} строчке равна {sum}");
-    }    
+        System.Console.WriteLine($"Сумма элементов в {i + 1} строчке равна: {sum}");
+    }
+    System.Console.WriteLine();
+}
+
+void ColumSummElements(int[,] matrix)
+{
+    int sum = 0;
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        sum = 0;
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            sum = sum + matrix[i, j];
+        }
+        System.Console.WriteLine($"Сумма элементов в {j + 1} столбце равна: {sum}");
+    }
+    System.Console.WriteLine();
 }
 
 Main();
