@@ -1,4 +1,5 @@
-﻿// Транспонирование двумерного массива
+﻿//Замена отрицательных элементов в массиве
+
 
 void Main()
 {
@@ -8,10 +9,10 @@ void Main()
     int max = ReadInt("Введите максимальное число для рандома: ");
 
     int[,] matrix = CreateRandomMatrix(row, col, min, max);
-    int[,] matrix2 = TranparentMatrix(matrix);
-    PrintMatrix(matrix);
-    PrintMatrix(matrix2);
     
+
+    PrintMatrix(matrix);
+    PrintMatrix(ReplaceNegNum(matrix));
 }
 
 int[,] CreateRandomMatrix(int RowLength, int ColLenght, int MinNumber, int MaxNumber)
@@ -64,21 +65,19 @@ int ReadInt(string msg)
 }
 
 
-int[,] TranparentMatrix (int[,] matrix)
+int[,] ReplaceNegNum(int[,] matrix)
 {
-
-    int[,] transparent = new int[matrix.GetLength(1),matrix.GetLength(0)];
-
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            transparent[j,i] = matrix[i,j];
+            if (matrix[i, j] < 0)
+            {
+                matrix[i, j] = matrix[i, j] * -1;
+            }
         }
         
     }
-    return transparent;
-
+    return matrix;
 }
-
-Main();
+    Main();

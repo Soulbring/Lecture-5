@@ -47,8 +47,20 @@ void PrintMatrix(int[,] matrix)
 
 int ReadInt(string msg)
 {
-    System.Console.Write(msg);
-    return Convert.ToInt32(Console.ReadLine());
+    while (true)
+    {
+        Console.Write(msg);
+        string input = Console.ReadLine();
+
+        if (int.TryParse(input, out int number))
+        {
+            return number;
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод. Пожалуйста, введите целое число.");
+        }
+    }
 }
 
 void RowSummElements(int[,] matrix)
