@@ -50,8 +50,7 @@ int ReadInt(string msg)
     while (true)
     {
         Console.Write(msg);
-        string input = Console.Rea5
-        dLine();
+        string input = Console.ReadLine();
 
         if (int.TryParse(input, out int number))
         {

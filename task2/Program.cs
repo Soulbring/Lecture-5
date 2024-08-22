@@ -10,7 +10,7 @@ void Main()
 
     int[,] matrix = CreateRandomMatrix(row, col, min, max);
     PrintMatrix(matrix);
-    RowSummElements(matrix);
+//    RowSummElements(matrix);
     ColumSummElements(matrix);
 }
 
@@ -63,20 +63,20 @@ int ReadInt(string msg)
     }
 }
 
-void RowSummElements(int[,] matrix)
-{
-    int sum = 0;
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        sum = 0;
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            sum = sum + matrix[i, j];
-        }
-        System.Console.WriteLine($"Сумма элементов в {i + 1} строчке равна: {sum}");
-    }
-    System.Console.WriteLine();
-}
+// void RowSummElements(int[,] matrix)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         sum = 0;
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             sum = sum + matrix[i, j];
+//         }
+//         System.Console.WriteLine($"Сумма элементов в {i + 1} строчке равна: {sum}");
+//     }
+//     System.Console.WriteLine();
+// }
 
 void ColumSummElements(int[,] matrix)
 {
